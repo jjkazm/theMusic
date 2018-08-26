@@ -3,6 +3,8 @@ var express       = require("express"),
     mongoose      = require("mongoose"),
     Album         = require("./models/album"),
     User          = require("./models/user"),
+    AlbumRoutes   = require(".routes/album"),
+    bodyParser    = require("body-parser"),
     IndexRoutes   = require("./routes/index.js");
     
     
@@ -16,6 +18,7 @@ mongoose.connect("mongodb://localhost:27017/theMusic", { useNewUrlParser: true }
 
 
 app.use(IndexRoutes);
+app.use("albums", AlbumRoutes);
 
 app.listen(process.env.PORT, process.env.ID, function(err){
     if(err){
