@@ -13,8 +13,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
 //connecting mongodb and mongoose
-mongoose.connect("mongodb://localhost:27017/theMusic", { useNewUrlParser: true });
-//mongodb://kajetan88:haslo88@ds235022.mlab.com:35022/themusic
+//mongoose.connect("mongodb://localhost:27017/theMusic", { useNewUrlParser: true });
+mongoose.connect("mongodb://kajetan88:haslo88@ds235022.mlab.com:35022/themusic", { useNewUrlParser: true });
 
 
 
