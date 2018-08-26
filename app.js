@@ -11,6 +11,7 @@ var express       = require("express"),
     
 app.use(bodyParser.urlencoded({extended: true}));  
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 
 //connecting mongodb and mongoose
 //mongoose.connect("mongodb://localhost:27017/theMusic", { useNewUrlParser: true });
