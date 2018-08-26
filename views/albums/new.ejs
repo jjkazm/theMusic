@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class = "row">
+        <h1>Add the album you like</h1>
+        <div>
+            <form action="albums" method="POST">
+              <div class="form-group">
+                <label for="albumName">Album title</label>
+                <input type="text" class="form-control" id="albumName" name="title" placeholder="Album title">
+              </div>
+              <div class="form-group">
+                <label for="albumArtist">Artist</label>
+                <input type="text" class="form-control" id="albumArtist" name="artist" placeholder="Artist">
+              </div>
+              <div class="form-group">
+                <label for="albumYear">Year it was created</label>
+                <input type="text" class="form-control" id="albumyear" name="year" placeholder="Year">
+              </div>
+              <div class="form-group">
+                <label for="albumDesc">Description</label>
+                <input type="text" class="form-control" id="albumDesc" name="desc" placeholder="Description">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
