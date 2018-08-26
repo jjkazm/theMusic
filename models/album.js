@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 
 
 var albumSchema = new mongoose.Schema({
-  name: String,
+  title: String,
   artist: String,
   year: String,
   pic: String,
