@@ -1,28 +1,36 @@
-<!-- Custom styles for this template -->
-    <style>
-      body {
-        padding-top: 54px;
-      }
-      @media (min-width: 992px) {
-        body {
-          padding-top: 56px;
-        }
-      }
-     </style>
-   </head>
-   <body>
-     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-@@ -65,7 +52,7 @@
-          <h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
-          <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-          <ul class="list-unstyled">
-            <li>Bootstrap 4.1.1</li>
-            <li>Bootstrap 4.1.3</li>
-            <li>jQuery 3.3.1</li>
-          </ul>
+<% include ../partials/header %>
+<div class="container">
+    <header class="jumbotron">
+        <h1>Welcome to the <strong>theMusic</strong></h1>
+        <p>list of the most popular music albums</p>
+        <div>
+            <a class="btn btn-primary btn-lg" href="albums/new">add album you like</a>
         </div>
+    </header>
+    
+    <div class="row text-center" style="display:flex; flex-wrap:wrap">
+      <div class="row">
+        <% albums.forEach(function(album){ %>
+            
+            <div class = "col-md-3 col-sm-6">
+              <a href="/albums/<%=album._id %>">
+                <div class="thumbnail">
+                    <img src = "<%= album["cover"] %>">
+                    <div class="caption">
+                        <h4>
+                            <%= album["title"] %>
+                        </h4> 
+                        <h6>
+                            <%= album["artist"] %>
+                        </h6> 
+                    </div>
+                </div>
+              </a>
+            </div>
+        <%})%>
+      </div>
+    </div>
+</div>
+
+
+<% include ../partials/footer %>
