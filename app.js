@@ -5,6 +5,7 @@ var express       = require("express"),
     User          = require("./models/user"),
     AlbumRoutes   = require("./routes/albums"),
     bodyParser    = require("body-parser"),
+    methodOverride= require("method-override"),
     IndexRoutes   = require("./routes/index");
     
     
@@ -12,6 +13,7 @@ var express       = require("express"),
 app.use(bodyParser.urlencoded({extended: true}));  
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
 
 //connecting mongodb and mongoose
 //mongoose.connect("mongodb://localhost:27017/theMusic", { useNewUrlParser: true });
