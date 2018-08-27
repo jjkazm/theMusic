@@ -10,6 +10,6 @@ var userSchema = new mongoose.Schema({
     age: String
 });
 
-userSchema.plugin("passLocalmong");
+userSchema.plugin("passLocalMong");
 
 module.exports = mongoose.model("User", userSchema);
