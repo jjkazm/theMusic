@@ -6,6 +6,10 @@ var express       = require("express"),
     AlbumRoutes   = require("./routes/albums"),
     bodyParser    = require("body-parser"),
     methodOverride= require("method-override"),
+    passport      = require("passport"),
+    passLocal     = require("passport-local"),
+    passLocalMong = require("passport-local-mongoose"),
+    expressSession= require("express-session"),
     IndexRoutes   = require("./routes/index");
     
     
@@ -20,9 +24,31 @@ app.use(methodOverride("_method"));
 mongoose.connect("mongodb://kajetan88:haslo88@ds235022.mlab.com:35022/themusic", { useNewUrlParser: true });
 
 
+//***********************************************
+//configuring PASSPORT authentication
+//***********************************************
+app.use(expressSession({
+    secret:"Agatka is best",
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new passLocal(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
+
+
+
+//***********************************************
+//setting up ROUTES
+//***********************************************
 app.use(IndexRoutes);
 app.use("/albums", AlbumRoutes);
+
+
+
 
 app.listen(process.env.PORT, process.env.ID, function(err){
     if(err){
