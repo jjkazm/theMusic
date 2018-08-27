@@ -10,6 +10,8 @@
                 </div>
                 <div class="caption col-md-6 col-sm-12">
                     <h4 class="pull-left"><%=album.artist%></h4>
+                    <h4 class="pull-left"><%=album.year%></h4>
+                    <div class="pull-left"><%=album.description %></div>
                     <div id="buttons" class="center">
                         <a class="btn btn-warning" href="/albums/<%=album._id%>/edit">Edit album</a>
                         <form class="delete-form" action="/albums/<%=album._id%>?_method=DELETE" method="POST">
