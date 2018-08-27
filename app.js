@@ -7,7 +7,7 @@ var express       = require("express"),
     bodyParser    = require("body-parser"),
     methodOverride= require("method-override"),
     passport      = require("passport"),
-    passLocal     = require("passport-local"),
+    LocalStrategy = require("passport-local"),
     passLocalMong = require("passport-local-mongoose"),
     expressSession= require("express-session"),
     IndexRoutes   = require("./routes/index");
@@ -34,9 +34,11 @@ app.use(expressSession({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new passLocal(User.authenticate()));
+
+passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
 
 
 
