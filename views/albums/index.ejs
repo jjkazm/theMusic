@@ -1,36 +1,36 @@
 <% include ../partials/header %>
 <div class="container">
-    <header class="jumbotron">
-        <h1>Welcome to the <strong>theMusic</strong></h1>
-        <p>list of the most popular music albums</p>
-        <div>
-            <a class="btn btn-primary btn-lg" href="albums/new">add album you like</a>
-        </div>
-    </header>
-    
-    <div class="row text-center" style="display:flex; flex-wrap:wrap">
-      <div class="row">
-        <% albums.forEach(function(album){ %>
-            
-            <div class = "col-md-3 col-sm-6">
-              <a href="/albums/<%=album._id %>">
-                <div class="thumbnail">
-                    <img src = "<%= album["cover"] %>">
-                    <div class="caption">
-                        <h4>
-                            <%= album["title"] %>
-                        </h4> 
-                        <h6>
-                            <%= album["artist"] %>
-                        </h6> 
-                    </div>
-                </div>
-              </a>
-            </div>
-        <%})%>
+  <header class="jumbotron index_header">
+      <h1>Welcome to the <strong>theMusic</strong></h1>
+      <p>list of the most popular music albums</p>
+      <div>
+          <a class="btn btn-primary btn-lg" href="albums/new">add album you like</a>
       </div>
+  </header>
+  
+  <div class="text-center" style="display:flex; flex-wrap:wrap">
+    <div class="row">
+      <% albums.forEach(function(album){ %>
+          
+          <div class = "col-md-3 col-sm-6">
+            <a href="/albums/<%=album._id %>">
+              <div class="thumbnail">
+                  <img src = "<%= album["cover"] %>" class="index_img">
+                  <div class="caption">
+                      <h4>
+                          <%= album["title"] %>
+                      </h4> 
+                      <h6>
+                          <%= album["artist"] %>
+                      </h6> 
+                  </div>
+              </div>
+            </a>
+          </div>
+      <%})%>
     </div>
-</div>
-
-
+  </div>
+  
 <% include ../partials/footer %>
+
+

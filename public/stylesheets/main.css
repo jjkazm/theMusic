@@ -1,11 +1,27 @@
-.thumbnail img{
-    width:200%;
-}
-
 .no-padd{
     padding: 0;
 }
 
 .delete-form{
     display: inline;
+}
+
+body{
+    background-image: url(https://pixabay.com/get/ea37b60a28f1043ed1584d05fb1d4e97e07ee3d21cac104496f5c370a1ecb6bb_340.png);
+    background-repeat: repeat;
+}
+
+body> .container{
+    background-color: white;
+}
+
+/*Index styles*/
+.index_img{
+   width:100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.index_header{
+    width: 100%;
 }
