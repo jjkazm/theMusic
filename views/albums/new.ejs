@@ -1,8 +1,9 @@
 <% include ../partials/header %>
 <div class="container">
-    <div class = "row">
+    <div class = "row justify-content-md-center padding">
+      <div class="col-md-6 col-sm-12">
         <h1>Add the album you like</h1>
-        <div>
+        <div class="album_form">
             <form action="/albums" method="POST">
               <div class="form-group">
                 <label for="albumName">Album title</label>
@@ -28,4 +29,5 @@
             </form>
         </div>
     </div>
-</div>
+  </div>
+

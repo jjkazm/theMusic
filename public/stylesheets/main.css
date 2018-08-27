@@ -25,3 +25,25 @@ body> .container{
 .index_header{
     width: 100%;
 }
+
+
+/*New album styles*/
+
+.padding{
+    padding:20px;
+}
+
+/*SHOW image*/
+
+.center{
+    display:block;
+    margin: auto;
+}
+#buttons{
+    position: absolute;
+    bottom: 0;
+}
+
+.huge{
+    font-size: 8em;
+}

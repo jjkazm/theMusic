@@ -50,3 +50,17 @@ router.get("/:id", function(req, res){
 })
 
 module.exports = router;
+
+
+//**************
+//DELETE ALBUM 
+//**************
+router.delete("/:id", function(req, res){
+    Album.findByIdAndRemove(req.params.id, function(err, deletedAlbum){
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect("/");
+        }
+    });
+})

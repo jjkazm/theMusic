@@ -1,2 +1,22 @@
-<h1>show</h1>
-<p><%=album.title%></p>
+<% include ../partials/header %>
+
+
+<div class="container">
+        <div class="thumbnail no-padd">
+            <h1 class="text-center huge"><%=album["title"] %></h1>
+            <div class = "row">
+                <div class="col-md-6 col-sm-12 ">
+                    <img class="img-responsive center"  src="<%=album["cover"] %>">
+                </div>
+                <div class="caption col-md-6 col-sm-12">
+                    <h4 class="pull-left"><%=album.artist%></h4>
+                    <div id="buttons" class="center">
+                        <a class="btn btn-warning" href="/albums/<%=album._id%>/edit">Edit album</a>
+                        <form class="delete-form" action="/albums/<%=album._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+<% include ../partials/footer %>
