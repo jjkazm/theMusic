@@ -47,9 +47,37 @@ router.get("/:id", function(req, res){
            res.render("albums/show", {album: foundAlbum}); 
         }
     });
-})
+});
 
-module.exports = router;
+
+
+//**************
+//EDIT ALBUM 
+//**************
+
+//render EDIT form
+
+router.get("/:id/edit", function(req, res){
+    Album.findById(req.params.id, function(err, foundAlbum){
+        if(err){
+            console.log(err);
+        }else{
+            res.render("albums/edit", {album:foundAlbum});
+        }
+    });
+});
+
+//update logic
+
+router.put("/:id", function(req, res){
+    Album.findByIdAndUpdate(req.params.id, req.body.updatedAlbum, function(err, updatedAlbum){
+        if(err){
+            console.log("Error");
+        }else{
+            res.redirect(req.params.id);
+        }
+    } );
+});
 
 
 //**************
@@ -63,4 +91,6 @@ router.delete("/:id", function(req, res){
             res.redirect("/albums/");
         }
     });
-})
+});
+
+module.exports = router;
