@@ -36,6 +36,20 @@ router.post("/register", function(req, res){
     });
 });
 
+//**********************************    
+//LOGIN
+//********************************** 
+
+//open LOGIN view
+router.get("/login", function(req, res){
+    res.render("login");
+});
+
+//LOGIN logic
+router.post("/login", passport.authenticate("local", {
+    successRedirect: "/albums",
+    failureRedirect: "/login"
+}),function(req, res){});
 
 
     
