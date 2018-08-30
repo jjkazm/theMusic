@@ -1,8 +1,24 @@
-var mongoose              = require("mongoose"),
-    passLocalmong         = require("passport-local-mongoose");
+//I wrote it:
+// var mongoose              = require("mongoose"),
+//     passLocalMong         = require("passport-local-mongoose");
     
 
-var userSchema = new mongoose.Schema({
+// var userSchema = new mongoose.Schema({
+//     username: String,
+//     email: String,
+//     password: String,
+//     country: String,
+//     age: String
+// });
+
+// userSchema.plugin("passLocalMong");
+
+// module.exports = mongoose.model("User", userSchema);
+
+var mongoose          = require("mongoose"),
+passportLocalMongoose = require("passport-local-mongoose");
+
+var UserSchema = new mongoose.Schema({
     username: String,
     email: String,
     password: String,
@@ -10,6 +26,7 @@ var userSchema = new mongoose.Schema({
     age: String
 });
 
-userSchema.plugin("passLocalMong");
+UserSchema.plugin("passportLocalMongoose");
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", UserSchema);
+
