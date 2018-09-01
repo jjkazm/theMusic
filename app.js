@@ -20,7 +20,8 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 
 //connecting mongodb and mongoose
-mongoose.connect("mongodb://kajetan88:haslo88@ds235022.mlab.com:35022/themusic", { useNewUrlParser: true });
+//mongoose.connect("mongodb://kajetan88:haslo88@ds235022.mlab.com:35022/themusic", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27017/theMusic", {useNewUrlParser: true});
 
 
 //***********************************************

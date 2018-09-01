@@ -20,21 +20,56 @@ router.get("/register", function(req, res){
 });
 
 //register logic
+
+// router.post("/register", function(req, res){
+//   User.create(req.body.ziom, function(err, createdUser){
+//         if(err){
+//             console.log(err);
+//         }else{
+//             User.register(createdUser, req.body.password, function(err, user){
+//                  if(err){
+//                      console.log("cant register");
+//                      return res.redirect("/register");
+//                  }else{
+//                      passport.authenticate("local")(req, res, function(){
+//                         res.redirect("/albums");
+//                      });
+//                  }
+//             });
+//         }
+//     });
+// });
+
+//  router.post("/register", function(req, res){
+//     var newUser = new User(req.body.ziom);
+//         console.log(newUser);
+//     User.register(newUser, req.body.password, function(err, user){
+//         console.log(user);
+//         if(err){
+//             console.log("we really can't login");
+//             return res.redirect("/register");
+//         }else{
+//             passport.authenticate("local")(req, res, function(){
+//                 res.redirect("/albums");
+//             });
+//         }
+//     });
+// });
+
 router.post("/register", function(req, res){
-     console.log(req.body.newUser);
-    var newUser2 = new User({username: req.body.username, email:req.body.email, country:req.body.country, age:req.body.age});
-    console.log(newUser2)
-   
-     User.register(newUser2, req.body.password, function(err, user){
-         if(err){
-             console.log("cant register")
-             return res.redirect("/register");
-         }else{
-             passport.authenticate("local")(req, res, function(){
-                 console.log("registered: "+req.user);
+    var newUser = new User(
+        {username: req.body.username, 
+        email: req.body.email, 
+        country: req.body.country, 
+        age: req.body.age});
+    User.register(newUser, req.body.password, function(err, user){
+        if(err){
+            return res.redirect("/register");
+        }else{
+            passport.authenticate("local")(req, res, function(){
                 res.redirect("/albums");
-             });
-         }
+            });
+        }
     });
 });
 
@@ -52,7 +87,7 @@ router.post("/login", passport.authenticate("local", {
     successRedirect: "/albums",
     failureRedirect: "/login"
 }),function(req, res){
-    console.log("logged " + req.user);
+   
 });
 
 //**********************************    
@@ -60,7 +95,6 @@ router.post("/login", passport.authenticate("local", {
 //********************************** 
 router.get("/logout", function(req, res){
     req.logout();
-    console.log("you are log out")
     res.redirect("/albums");
 });
 
