@@ -27,9 +27,11 @@ router.post("/register", function(req, res){
    
      User.register(newUser2, req.body.password, function(err, user){
          if(err){
+             console.log("cant register")
              return res.redirect("/register");
          }else{
              passport.authenticate("local")(req, res, function(){
+                 console.log("registered: "+req.user);
                 res.redirect("/albums");
              });
          }
@@ -49,13 +51,16 @@ router.get("/login", function(req, res){
 router.post("/login", passport.authenticate("local", {
     successRedirect: "/albums",
     failureRedirect: "/login"
-}),function(req, res){});
+}),function(req, res){
+    console.log("logged " + req.user);
+});
 
 //**********************************    
 //LOGOUT
 //********************************** 
 router.get("/logout", function(req, res){
     req.logout();
+    console.log("you are log out")
     res.redirect("/albums");
 });
 

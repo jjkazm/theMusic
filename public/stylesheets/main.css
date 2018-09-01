@@ -17,9 +17,9 @@ body> .container{
 
 /*HEADER*/
 
-/*nav > div > .navbar-collapse{*/
-/*    display: inline;*/
-/*}*/
+.icon{
+    font-size: 15px;
+}
 
 /*Index styles*/
 .index_img{
@@ -30,9 +30,19 @@ body> .container{
 
 .index_header{
     width: 100%;
+    
 }
 
-
+/*FORMS*/
+.outer{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input:required {
+  box-shadow: 2px 2px 10px rgba(200, 0, 0, 0.85);
+}
 /*New album styles*/
 
 .padding{
@@ -53,3 +63,4 @@ body> .container{
 .huge{
     font-size: 8em;
 }
+

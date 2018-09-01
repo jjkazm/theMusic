@@ -1,16 +1,26 @@
 <% include ./partials/header %>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-6 col-sm-12">
+    <div class="row outer">
+        <div class="col-md-6 col-sm-12 inner">
             <h1>Sign Up!</h1>
             <form action="/register" method="post">
-                <input type="text" name="newUser[username]" placeholder="username">
-                <input type="text" name="newUser[email]" placeholder="email">
-                <input type="password" name="newUser[password]" placeholder="password">
-                <input type="text" name="newUser[country]" placeholder="country">
-                <input type="text" name="newUser[age]" placeholder="age">
-                <button>Sign Up</button>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="newUser[username]" placeholder="username" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="newUser[email]" placeholder="email" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="newUser[password]" placeholder="password" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="newUser[country]" placeholder="country">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="newUser[age]" placeholder="age">
+                </div>
+                    <button class=" btn btn-success">Sign Up</button>
             </form>
         </div>
     </div>

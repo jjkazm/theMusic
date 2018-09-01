@@ -20,7 +20,6 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 
 //connecting mongodb and mongoose
-//mongoose.connect("mongodb://localhost:27017/theMusic", { useNewUrlParser: true });
 mongoose.connect("mongodb://kajetan88:haslo88@ds235022.mlab.com:35022/themusic", { useNewUrlParser: true });
 
 
@@ -41,11 +40,23 @@ passport.deserializeUser(User.deserializeUser());
 
 
 
+//setting RESPONSE LOCAL VARIABLES
+app.use(function(req, res, next){
+    res.locals.loggedUser = req.user;
+    next();
+});
 
 
 //***********************************************
 //setting up ROUTES
 //***********************************************
+
+//setting RESPONSE LOCAL VARIABLES
+app.use(function(req, res, next){
+    res.locals.loggedUser = req.user;
+    next();
+});
+
 app.use(IndexRoutes);
 app.use("/albums", AlbumRoutes);
 
