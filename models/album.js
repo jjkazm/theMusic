@@ -7,7 +7,7 @@ var albumSchema = new mongoose.Schema({
   year: String,
   cover: String,
   description: String,
-  user:{
+  creator:{
       id:{
           type:mongoose.Schema.Types.ObjectId,
           ref: "User"

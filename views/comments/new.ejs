@@ -1,0 +1,20 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class = "row justify-content-md-center padding">
+      <div class="col-md-6 col-sm-12">
+        <h1>Add comment</h1>
+        <div class="album_form">
+            <form action="/albums/<%=album._id%>/comments" method="POST">
+              <div class="form-group">
+                <input type="textarea" class="form-control" id="commContent" name="newComm[content]" placeholder="Tell us how you like it">
+              </div>
+              <div class="form-group">
+                <label for="commRating">Rating:</label>
+                <input type="number" class="form-control" id="commRating" name="newComm[rating]" min="1" max="5" step="0.5">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+  </div>
+

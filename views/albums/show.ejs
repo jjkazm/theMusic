@@ -20,6 +20,34 @@
                         <a class="btn btn-primary" href="/albums/">Go back</a>
                     </div>
                 </div>
+                <
+                <div class="thumbnail no-padd">
+                    <img class="img-responsive" src="<%=camp["image"] %>">
+                    <div class="caption">
+                        <% console.log(camp) %>
+                        <h4 class="pull-right">$<%=camp.price%>/night</h4>
+                        <h4><a><%=camp["name"] %></a></h4>
+                        <em><h4>Submitted By <%= camp.author.username%></h4></em>
+                        <p><%= camp["description"]%></p>
+                        <% if(currentUser && camp.author.id.equals(currentUser._id)){ %>
+                            <a class="btn btn-warning" href="/campgrounds/<%=camp._id%>/edit">Edit camp</a>
+                            <form class="delete-form" action="/campgrounds/<%=camp._id%>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                        <% } %>
+                    </div>
+                </div>
+                
+                <div class="well">
+                    <div>
+                        <a class="btn btn-primary" href="/albums/<%=album._id%>/comments/new">Add new comment</a>
+                    </div>
+                    <div>
+                        <% album["comments"].forEach(function(comment){ %>
+                                <div><%= comment.content %></div>
+                        <% }) %>
+                    </div>
+                </div>
             </div>
         </div>
 <% include ../partials/footer %>

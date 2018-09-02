@@ -40,7 +40,7 @@ router.post("/", function(req, res){
 //SHOW ALBUM 
 //**************
 router.get("/:id", function(req, res){
-    Album.findById(req.params.id, function(err, foundAlbum){
+    Album.findById(req.params.id).populate("comments").exec(function(err, foundAlbum){
         if(err){
             console.log(err);
         }else{
@@ -48,8 +48,6 @@ router.get("/:id", function(req, res){
         }
     });
 });
-
-
 
 //**************
 //EDIT ALBUM 

@@ -3,14 +3,17 @@ var express       = require("express"),
     mongoose      = require("mongoose"),
     Album         = require("./models/album"),
     User          = require("./models/user"),
+    Comment       = require("./models/comment"),
     AlbumRoutes   = require("./routes/albums"),
+    IndexRoutes   = require("./routes/index"),
+    CommRoutes    = require("./routes/comments"),
     bodyParser    = require("body-parser"),
     methodOverride= require("method-override"),
     passport      = require("passport"),
     LocalStrategy = require("passport-local"),
     passLocalMong = require("passport-local-mongoose"),
-    expressSession= require("express-session"),
-    IndexRoutes   = require("./routes/index");
+    expressSession= require("express-session");
+    
     
     
     
@@ -60,6 +63,7 @@ app.use(function(req, res, next){
 
 app.use(IndexRoutes);
 app.use("/albums", AlbumRoutes);
+app.use("/albums/:id/comments", CommRoutes);
 
 
 
