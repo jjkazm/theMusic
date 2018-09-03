@@ -40,6 +40,7 @@ body> .container{
   justify-content: center;
   align-items: center;
 }
+
 input:required {
   box-shadow: 2px 2px 10px rgba(200, 0, 0, 0.85);
 }
@@ -51,16 +52,6 @@ input:required {
 
 /*SHOW image*/
 
-.center{
-    display:block;
-    margin: auto;
+.full-width{
+    width:100%;
 }
-#buttons{
-    position: absolute;
-    bottom: 0;
-}
-
-.huge{
-    font-size: 8em;
-}
-

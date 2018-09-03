@@ -1,53 +1,43 @@
 <% include ../partials/header %>
 
-
 <div class="container">
-        <div class="thumbnail no-padd">
-            <h1 class="text-center huge"><%=album["title"] %></h1>
-            <div class = "row">
-                <div class="col-md-6 col-sm-12 ">
-                    <img class="img-responsive center"  src="<%=album["cover"] %>">
-                </div>
-                <div class="caption col-md-6 col-sm-12">
-                    <h4 class="pull-left"><%=album.artist%></h4>
-                    <h4 class="pull-left"><%=album.year%></h4>
-                    <div class="pull-left"><%=album.description %></div>
-                    <div id="buttons" class="center">
-                        <a class="btn btn-warning" href="/albums/<%=album._id%>/edit">Edit album</a>
-                        <form class="delete-form" action="/albums/<%=album._id%>?_method=DELETE" method="POST">
-                            <button class="btn btn-danger">Delete</button>
-                        </form>
-                        <a class="btn btn-primary" href="/albums/">Go back</a>
-                    </div>
-                </div>
-                <
-                <div class="thumbnail no-padd">
-                    <img class="img-responsive" src="<%=camp["image"] %>">
-                    <div class="caption">
-                        <% console.log(camp) %>
-                        <h4 class="pull-right">$<%=camp.price%>/night</h4>
-                        <h4><a><%=camp["name"] %></a></h4>
-                        <em><h4>Submitted By <%= camp.author.username%></h4></em>
-                        <p><%= camp["description"]%></p>
-                        <% if(currentUser && camp.author.id.equals(currentUser._id)){ %>
-                            <a class="btn btn-warning" href="/campgrounds/<%=camp._id%>/edit">Edit camp</a>
-                            <form class="delete-form" action="/campgrounds/<%=camp._id%>?_method=DELETE" method="POST">
-                                <button class="btn btn-danger">Delete</button>
-                            </form>
-                        <% } %>
-                    </div>
-                </div>
-                
-                <div class="well">
-                    <div>
-                        <a class="btn btn-primary" href="/albums/<%=album._id%>/comments/new">Add new comment</a>
-                    </div>
-                    <div>
-                        <% album["comments"].forEach(function(comment){ %>
-                                <div><%= comment.content %></div>
-                        <% }) %>
-                    </div>
-                </div>
+    <div class="jumbotron">
+        <div class="display-4"><%=album["title"] %></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <img class="img-fluid" src="<%=album["cover"] %>">
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <h5><%=album["artist"]%></h5>
+            <h5><%=album["year"]%></h5>
+            <p><%=album.description %></p>
+            <div>
+                <a class="btn btn-primary" href="/albums/">Go back </a>
+                <a class="btn btn-warning" href="/albums/<%=album._id%>/edit">Update</a>
+                <form action="/albums/<%album._id%>?_method=DELETE" method="post" class="delete-form">
+                    <input type="submit" class="btn btn-danger" value="Delete">
+                </form>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="card full-width">
+            <div class="card-header">
+                Comments on <strong><%=album["title"]%></strong>
+                <div class="ml-auto">
+                    <a class="btn btn-primary mr-auto" href="<%=album._id%>/comments/new">Add new comment</a>
+                </div>
+            </div>
+            <div class="card-body">
+               <% album["comments"].forEach(function(comment){ %>
+                                <div><%= comment.content %></div>
+                                <div>Rating: <%= comment.rating %></div>    
+                                <hr>
+                        <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
 <% include ../partials/footer %>
+
